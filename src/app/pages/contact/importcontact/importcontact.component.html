@@ -1,0 +1,76 @@
+  <div class="card-row">
+    <div class="card-col">
+      <nb-card size="medium">
+        <nb-card-header>IMPORT CONTACTS</nb-card-header>
+      <nb-card-body>
+        <form action="/" method="post" #myForm="ngForm" (ngSubmit)="importcontact(); myForm.reset()" enctype="multipart/form-data">
+          <button nbButton class="btn-complete"><i class="fa fa-download" (click)="downloadCSV()"></i>Download Sample File</button>
+          <div class="form-control-group">
+            <label class="label">IMPORT NUMBERS</label>
+            <input nbInput type="file" name="csv" accept=".csv"
+            (change)="uploadfile($event)"
+                   fullWidth >
+                 
+          </div>
+        <div class="form-control-group">
+          <label class="label">COUNTRY CODE</label>
+          <br>
+          <nb-select name="s4" placeholder="Exist On Phone Number"[(ngModel)]="countrycode" [(selected)]='countrycode'>
+            <nb-option *ngFor="let country of countries"[value]="country">{{country.name}} ({{country.callingCodes}})</nb-option>
+          </nb-select>
+        </div>
+        <div class="form-control-group">
+          <label class="label">IMPORT LIST INTO</label>
+          <br>
+          <nb-select name="s5" placeholder="Select LIST" >
+            <nb-option *ngFor="let group of listgroup"[value]="group">{{group.last_name}}</nb-option>
+          </nb-select>
+        </div>
+        <br>
+        <button type="submit" class="btn-sm"
+                nbButton
+                size="small"
+                [class.btn-pulse]="submitted"
+                >
+          + Add
+        </button>
+      </form>
+      </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="card-col">
+      <nb-card size="medium">
+        <nb-card-header>IMPORT BY NUMBERS</nb-card-header>
+        <nb-card-body>
+          <form>
+          <div class="form-control-group">
+            <label class="label">COUNTRY CODE</label>
+            <br>
+            <nb-select name="s4" placeholder="Exist On Phone Number"[(ngModel)]="countrycode" [(selected)]='countrycode'>
+              <nb-option *ngFor="let country of countries"[value]="country">{{country.name}} ({{country.callingCodes}})</nb-option>
+            </nb-select>
+          </div>
+          <div class="form-group">
+            <label for="textarea" class="label">PASTE NUMBERS</label>
+            <textarea nbInput fullWidth></textarea>
+          </div>
+          <div class="form-control-group">
+            <label class="label">IMPORT LIST INTO</label>
+            <br>
+            <nb-select name="s5" placeholder="Select LIST" >
+              <nb-option *ngFor="let group of listgroup"[value]="group">{{group.last_name}}</nb-option>
+            </nb-select>
+          </div>
+          <br>
+          <button type="submit" class="btn-sm"
+                  nbButton
+                  size="small"
+                  [class.btn-pulse]="submitted"
+                  >
+            + Add
+          </button>
+        </form>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
