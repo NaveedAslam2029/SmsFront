@@ -41,11 +41,11 @@ export class AddContactComponent implements OnInit {
   });
   }
   addcontact(){
-    debugger
+    
     this.http.post(environment.backendUrl+'/Contact/Add', this.contact)
 
         .subscribe(response => {
-          debugger
+          
           this.router.navigate(["pages/contact/contact-list/"]);
           this.showToast('top-right', 'success','added successfully');
           console.log(response);

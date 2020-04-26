@@ -190,7 +190,7 @@ export class EditclientComponent implements OnInit {
   }
 
   // onChangeLimit(newLimit){
-  //   debugger
+  //   
   //   this.client.sms_limit=newLimit;
   //   console.log("on change limit", newLimit);
   //   this.onupdate(false);
@@ -212,7 +212,7 @@ export class EditclientComponent implements OnInit {
       console.log("sms update",data)
       if(data){
         // yahan jo properties update karni hn this.client me rakh k update kr do
-        debugger
+        
 this.client.sms_gateway=data.smsGateway;
         // other properties as well jo bhi isky ilawa properties yahan a ri wo model me ni thi is lye khud kar wa lena jo property karni ho
         this.onupdate(false);

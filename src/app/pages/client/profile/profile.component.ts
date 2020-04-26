@@ -13,7 +13,7 @@ fileData:any;
   ngOnInit() {
   }
   uploadImage($event){
-    debugger
+    
 this.fileData =$event;
 console.log(this.fileData);
   }

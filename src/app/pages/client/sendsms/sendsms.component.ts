@@ -18,7 +18,7 @@ export class SendsmsComponent implements OnInit {
   }
 
   sendSms(){
-    debugger
+    
 this.ref.close(this.smsData);
   }
 

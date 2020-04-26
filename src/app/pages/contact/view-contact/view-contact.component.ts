@@ -29,12 +29,12 @@ res:any;
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    debugger
+    
     this.http.get("http://localhost:3000/Contact/get-all/"+this.route.snapshot.params.id).subscribe((res:any)=>{
       this.contact=res[0];
         console.log("get contact by id",res)
       })
-      debugger
+      
       
           if(this.contact){
           }else{

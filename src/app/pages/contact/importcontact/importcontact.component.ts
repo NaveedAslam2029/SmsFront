@@ -22,7 +22,7 @@ export class ImportcontactComponent implements OnInit {
   countries: any;
   importedContacts:ImportcontactsModel;
   listgroup: any;
- 
+  fileToImport:string;
   status: any[];
   formula:string = "Formula 1";
   constructor(public http: HttpClient,
@@ -52,7 +52,7 @@ export class ImportcontactComponent implements OnInit {
 });
   }
   uploadfile = (mediaFiles:any) => {
-debugger
+
     console.log("call")
          let formData: FormData = new FormData();
          formData.append("file", mediaFiles.target.files[0]);
@@ -61,6 +61,7 @@ debugger
          this.onLoading.emit("true from file uploader");
          this.http.post(uploadFilePath, formData).subscribe((res:any)=>{
            console.log("success",res);
+           this.fileToImport = res.originalname;
              this.onFileUpload.emit(res.filePath);
            return res;
          },err=>{
@@ -68,6 +69,21 @@ debugger
            return err
          })
    }
+   importContacts(){
+     let body = {
+       fileName : this.fileToImport
+     }
+    let importContactsPath = environment.backendUrl + '/Contact/import_contacts';
+    this.http.post(importContactsPath, body).subscribe((res:any)=>{
+      console.log("success",res);
+      this.fileToImport = res.originalname;
+      this.router.navigateByUrl('/pages/contact/contact-list')
+        // this.onFileUpload.emit(res.filePath);
+      // return res;
+    },err=>{
+      console.log("err",err)
+      return err
+    })   }
   //  downloadCSV() {
   //   this.status = ["approved", "rejected", "pending"];
   //   var data = [
@@ -107,15 +123,15 @@ debugger
 
   //   new Angular2Csv(data, this.formula, options);
   // }
-  importcontact(){
-    debugger
-    this.http.post(environment.backendUrl+'/contactfile', this.contact)
-        .subscribe(response => {
-          this.showToast('top-right', 'success','added successfully');
-          console.log(response);
-        }, (err) => {
-          this.showToast('top-right', 'danger', err.message);
-         console.log ('Oooops!',err);
-        });
-  }
+  // importcontact(){
+  //   
+  //   this.http.post(environment.backendUrl+'/contactfile', this.contact)
+  //       .subscribe(response => {
+  //         this.showToast('top-right', 'success','added successfully');
+  //         console.log(response);
+  //       }, (err) => {
+  //         this.showToast('top-right', 'danger', err.message);
+  //        console.log ('Oooops!',err);
+  //       });
+  // }
 }

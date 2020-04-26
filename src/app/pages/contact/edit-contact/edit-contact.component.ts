@@ -49,7 +49,7 @@ export class EditContactComponent implements OnInit {
     }
   }
   updateList(navigate = true){
-    debugger
+    
     this.toggleLoader();
     this.http
       .put(

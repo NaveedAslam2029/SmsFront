@@ -76,10 +76,10 @@ export class AllclientComponent implements OnInit {
   }
   onDelete(row) {
     console.log("row",row);
-    debugger
+    
     this.http.delete(environment.backendUrl+"/Client/delete/"+  row._id).subscribe((res:any)=>{
       
-      debugger
+      
       this.loadData();
       // this.router.navigate(["pages/client/allclient/"]);
       this.showToast('top-right', 'success','Deleted successfully');

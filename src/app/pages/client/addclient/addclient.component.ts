@@ -39,11 +39,11 @@ export class AddclientComponent implements OnInit {
   }
   allclient()
 {
-  debugger
+  
   this.http.post(environment.backendUrl+'/Client/create', this.client)
 
       .subscribe(response => {
-        debugger
+        
         this.router.navigate(["pages/client/allclient/"]);
         this.showToast('top-right', 'success','added successfully');
         console.log(response);

@@ -68,7 +68,7 @@ export class ContactListComponent implements OnInit {
     this.direction = sort.sorts[0].dir;
   }
   addContactGroup(){
-    debugger
+    
     this.http.post(environment.backendUrl+'/Contact/add', this.contact)
         .subscribe((response:any) => { 
           // this.contactList.push(response);
@@ -96,10 +96,10 @@ export class ContactListComponent implements OnInit {
   }
   onDelete(row){
     console.log("row",row);
-    debugger
+    
     this.http.delete(environment.backendUrl+"/Contact/delete/"+  row._id).subscribe((res:any)=>{
       this.loadData();
-      debugger
+      
       this.showToast('top-right', 'success','Deleted successfully');
     }, (err) => {
       this.showToast('top-right', 'danger', err.message);
