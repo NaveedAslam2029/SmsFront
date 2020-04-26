@@ -6,6 +6,6 @@
 export const environment = {
   production: true,
   // backendUrl: 'http://localhost:3000',
-  backendUrl: 'https://ultimatesmsbackend.herokuapp.com/'
+  backendUrl: 'https://ultimatesmsbackend.herokuapp.com'
 
 };

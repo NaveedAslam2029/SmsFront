@@ -14,7 +14,5 @@ export const environment = {
   mediaFileApiBaseUrl: "https://localhost:44347/",
   otpMaxLength:6,
   // backendUrl: 'http://localhost:3000'
-  backendUrl: 'https://ultimatesmsbackend.herokuapp.com/'
-
-
+  backendUrl: 'https://ultimatesmsbackend.herokuapp.com'
 };
