@@ -82,24 +82,6 @@ import { environment } from '../environments/environment';
               options[module].defaultErrors,
             ),
           },
-          // messages:{
-          //   key: 'data',
-          //   getter: (module: string, res: HttpResponse<Object>, options: NbPasswordAuthStrategyOptions) => {
-          //     let response: any = res.body.valueOf();
-          //     if (response) {
-          //       sessionStorage.removeItem('guid');
-          //       sessionStorage.setItem('guid', response.data.id);
-          //     }
-          //     else {
-          //       sessionStorage.removeItem('guid');
-          //     }
-          //     return getDeepFromObject(
-          //       res.body,
-          //       options.messages.key,
-          //       options[module].defaultMessages,
-          //     );
-          //   },
-          // },
         }),
       ],
       forms: {
