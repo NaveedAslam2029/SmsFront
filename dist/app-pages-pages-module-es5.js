@@ -52287,7 +52287,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var environment = {
       production: true,
       // backendUrl: 'http://localhost:3000',
-      backendUrl: 'https://ultimatesms1.herokuapp.com'
+      backendUrl: 'https://ultimatesmsbackend.herokuapp.com/'
     };
     /***/
   }

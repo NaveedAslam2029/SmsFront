@@ -4403,7 +4403,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
       mediaFileApiBaseUrl: "https://localhost:44347/",
       otpMaxLength: 6,
       // backendUrl: 'http://localhost:3000'
-      backendUrl: 'https://ultimatesms1.herokuapp.com'
+      backendUrl: 'https://ultimatesmsbackend.herokuapp.com/'
     };
     /***/
   },
