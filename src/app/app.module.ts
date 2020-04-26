@@ -53,7 +53,7 @@ import { environment } from '../environments/environment';
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          baseEndpoint:https://ultimatesmsbackend.herokuapp.com/,
+          baseEndpoint:'https://ultimatesmsbackend.herokuapp.com/',
           login: {
             endpoint: '/user/login',
             method: 'post',
