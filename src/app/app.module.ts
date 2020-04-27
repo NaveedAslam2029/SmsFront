@@ -23,6 +23,7 @@ import {
 import { NbAuthModule, NbPasswordAuthStrategy, NbAuthJWTToken, NbAuthJWTInterceptor, NB_AUTH_TOKEN_INTERCEPTOR_FILTER, NbPasswordAuthStrategyOptions, getDeepFromObject } from '@nebular/auth';
 import { AddUserAgentInterceptor } from './interceptor/add-user-agent-interceptor';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
+import { environment } from '../environments/environment';
 
 //export function testFun(module: string, res: HttpResponse<Object>, options: NbPasswordAuthStrategyOptions){
 
@@ -52,7 +53,7 @@ import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          baseEndpoint: 'http://localhost:3000',
+          baseEndpoint: environment.backendUrl,
           login: {
             endpoint: '/user/login',
             method: 'post',
@@ -81,24 +82,6 @@ import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
               options[module].defaultErrors,
             ),
           },
-          // messages:{
-          //   key: 'data',
-          //   getter: (module: string, res: HttpResponse<Object>, options: NbPasswordAuthStrategyOptions) => {
-          //     let response: any = res.body.valueOf();
-          //     if (response) {
-          //       sessionStorage.removeItem('guid');
-          //       sessionStorage.setItem('guid', response.data.id);
-          //     }
-          //     else {
-          //       sessionStorage.removeItem('guid');
-          //     }
-          //     return getDeepFromObject(
-          //       res.body,
-          //       options.messages.key,
-          //       options[module].defaultMessages,
-          //     );
-          //   },
-          // },
         }),
       ],
       forms: {
